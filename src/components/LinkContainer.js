@@ -12,9 +12,9 @@ X Change your Table component to render the TableHeader and TableBody components
 X Pass a prop called linkData to your Table component from the LinkContainer component
 X Access and show data passed from LinkContainer in TableBody
 X Create a state object in our LinkContainer to hold an array called favLinks
-Create a removeLink function in the LinkContainer class that updates the state and removes an item from favLinks
+X Create a removeLink function in the LinkContainer class that updates the state and removes an item from favLinks
 Create a prop called removeLink that passes your removeLink function to your Table component
-Create a button in your TableBody with an onClick that calls this.props.removeLink and passes the index of the table row
+--- Create a button in your TableBody with an onClick that calls this.props.removeLink and passes the index of the table row
 Create a Form component in your Form.js file with inputs and labels for name and URL
 Set the initial state of the Form to be an object with empty properties for a link name and URL
 Update the state of the Form every time the name or URL field is changed
@@ -25,14 +25,13 @@ Create a method called submitForm that calls the handleSubmit and passes the For
 Add a submit button to the Form that calls submitForm in its onClick parameter
 */
 
+
 const LinkContainer = (props) => {
 
   const [favLinks, setLinks] = useState([])
 
   const handleRemove = (index) => {
-    /*
-            TODO - Create logic for setting the state to filter array and remove favLink at index
-        */
+    setLinks((currentLinks) => currentLinks.filter((item, i) => i != index))
   }
 
   const handleSubmit = (favLink) => {
