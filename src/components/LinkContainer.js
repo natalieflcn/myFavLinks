@@ -13,14 +13,14 @@ X Pass a prop called linkData to your Table component from the LinkContainer com
 X Access and show data passed from LinkContainer in TableBody
 X Create a state object in our LinkContainer to hold an array called favLinks
 X Create a removeLink function in the LinkContainer class that updates the state and removes an item from favLinks
-Create a prop called removeLink that passes your removeLink function to your Table component
---- Create a button in your TableBody with an onClick that calls this.props.removeLink and passes the index of the table row
-Create a Form component in your Form.js file with inputs and labels for name and URL
-Set the initial state of the Form to be an object with empty properties for a link name and URL
-Update the state of the Form every time the name or URL field is changed
-Render the Form component below the Table component in your LinkContainer
-Create a function called handleSubmit on the LinkContainer to update the state of this.state.favLinks and add new favLink from Form
-Add the handleSubmit as a parameter to your Form component
+X Create a prop called removeLink that passes your removeLink function to your Table component
+X Create a button in your TableBody with an onClick that calls this.props.removeLink and passes the index of the table row
+X Create a Form component in your Form.js file with inputs and labels for name and URL
+X Set the initial state of the Form to be an object with empty properties for a link name and URL
+X Update the state of the Form every time the name or URL field is changed
+X Render the Form component below the Table component in your LinkContainer
+X Create a function called handleSubmit on the LinkContainer to update the state of this.state.favLinks and add new favLink from Form
+X Add the handleSubmit as a parameter to your Form component
 Create a method called submitForm that calls the handleSubmit and passes the Form data and resets the state of the Form values to be empty
 Add a submit button to the Form that calls submitForm in its onClick parameter
 */
@@ -31,28 +31,27 @@ const LinkContainer = (props) => {
   const [favLinks, setLinks] = useState([])
 
   const handleRemove = (index) => {
-    setLinks((currentLinks) => currentLinks.filter((item, i) => i != index))
+    const newLinks = favLinks.filter((item, i) => i != index)
+    setLinks(newLinks)
   }
 
   const handleSubmit = (favLink) => {
     const favLinksAndThenSome = [...favLinks, favLink]
-
     setLinks(favLinksAndThenSome)
   }
-
-  handleSubmit({ name: 'youtube', URL: 'www.youtube.com' })
 
   return (
     <div className="container">
       <h1>My Favorite Links</h1>
       <p>Add a new url with a name and link to the table.</p>
       
-      <Table props={{ linkData: favLinks, setLinks: setLinks }}/>
+      <Table props={{ linkData: favLinks, setLinks: setLinks, removeLink: handleSubmit }}/>
+      
 
       <br />
 
       <h3>Add New</h3>
-      {/*TODO - Add Form Component */}
+      <Form props={{handleSubmit: handleSubmit}}/>
     </div>
   )
 }
