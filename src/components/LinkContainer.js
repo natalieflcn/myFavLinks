@@ -45,7 +45,7 @@ const LinkContainer = (props) => {
       <h1>My Favorite Links</h1>
       <p>Add a new url with a name and link to the table.</p>
       
-      <Table props={{ linkData: favLinks, setLinks: setLinks, removeLink: handleSubmit }}/>
+      <Table props={{ linkData: favLinks, setLinks: setLinks, removeLink: handleRemove }}/>
       
 
       <br />

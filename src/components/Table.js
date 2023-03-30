@@ -17,12 +17,6 @@ const TableBody = ({ props }) => {
   // boilerplate table body functional component
   // we use Array.map to create table rows from LinkData passed via props
 
-  // Create a button in your TableBody with an onClick that calls this.props.removeLink and passes the index of the table row
-
-  
-
-
-
   const rows = props.linkData.map((row, index) => {
     return (
       <tr key={index}>
@@ -41,10 +35,7 @@ const TableBody = ({ props }) => {
 }
 
 const Table = ({ props }) => {
-
-  
   {
-   
     return (
       <table>   
         <TableHeader/>
