@@ -21,10 +21,9 @@ X Update the state of the Form every time the name or URL field is changed
 X Render the Form component below the Table component in your LinkContainer
 X Create a function called handleSubmit on the LinkContainer to update the state of this.state.favLinks and add new favLink from Form
 X Add the handleSubmit as a parameter to your Form component
-Create a method called submitForm that calls the handleSubmit and passes the Form data and resets the state of the Form values to be empty
-Add a submit button to the Form that calls submitForm in its onClick parameter
+XCreate a method called submitForm that calls the handleSubmit and passes the Form data and resets the state of the Form values to be empty
+XAdd a submit button to the Form that calls submitForm in its onClick parameter
 */
-
 
 const LinkContainer = (props) => {
 
@@ -46,8 +45,7 @@ const LinkContainer = (props) => {
       <p>Add a new url with a name and link to the table.</p>
       
       <Table props={{ linkData: favLinks, setLinks: setLinks, removeLink: handleRemove }}/>
-      
-
+    
       <br />
 
       <h3>Add New</h3>
