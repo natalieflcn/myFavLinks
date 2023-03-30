@@ -1,8 +1,5 @@
 import { useState } from 'react'
 
-// Set the initial state of the Form to be an object with empty properties for a link name and URL
-
-// Update the state of the Form every time the name or URL field is changed
 const Form = ({ props }) => {
 
   const [forms, setForms] = useState({
@@ -24,13 +21,11 @@ const Form = ({ props }) => {
       URL: event.target.value
     }
     setForms(temp)
-
   }
   
   }
 
   const onFormSubmit = (event) => {
-    // to prevent page reload on form submit
     event.preventDefault()
 
      props.handleSubmit(forms)
@@ -38,18 +33,20 @@ const Form = ({ props }) => {
 
   return (
     <form>
-      
-
       <label>
         Name:
         <input type="text" name="name" onChange={handleChange}/>
       </label>
+
+      <br />
 
       <label>
         URL:
         <input type="text" name="URL" onChange={handleChange}/>
       </label>
 
+      <br />
+      
       <input type="submit" value="Submit" onClick={onFormSubmit} />
       
     </form>
